@@ -24,7 +24,7 @@
                         <div><img src="assets/site_matheus.png" alt="Projeto 2"></div>
                         <div><img src="assets/site_thiago.png" alt="Projeto 3"></div>
                       
-                    </div>
+                    </div>fasdfa
                 </div>
             </div>
         </div>
