@@ -1,0 +1,496 @@
+/* 
+=======================
+FONTES LOCAIS
+=======================
+*/
+
+@font-face {
+    font-family: "Poppins";
+    src: url("../fonts/Poppins-Light.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Montserrat";
+    src: url("../fonts/Montserrat-Black.ttf") format("truetype");
+    font-weight: 900;
+    font-style: normal;
+}
+
+/* 
+=========================
+VARIAVEIS DO TIME DEV
+=========================
+*/
+:root {
+    /* CORES */
+    --cor-texto: #f2f2f2;
+    --cor-texto2: #1A1A1A;
+
+    --cor-titulo: #03A63C;
+    --cor-destaque: #0CF25D;
+
+    --cor-borda: #f2f2f2;
+    --cor-fundo: #1A1A1A;
+    --cor-fundo2: #027333;
+}
+
+
+:root {
+    /* FONTES */
+    --fonte-titulo: "Montserrat", sans-serif;
+    --fonte-texto: "Poppins", sans-serif;
+}
+#topo {
+    margin: 0 auto;
+    position: relative;
+    top: auto;
+    max-width: 1250px;
+    height: 120px;
+    background-color: #00000085;
+    display: flex;
+    justify-items: center;
+    justify-content: space-between;
+    border-radius: 20px 20px 20px 20px;
+}
+
+#topo h1 {
+    width: 65px;
+    height: 60px;
+    background-image: url(../assets/logo.svg);
+    margin: 30px;
+    text-indent: -9999px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#topo h2 {
+    font-family: var(--fonte-texto);
+}
+
+#topo .menu a {
+    text-decoration: none;
+    font-family: var(--fonte-titulo);
+    color: var(--cor-texto);
+    font-size: 20px;
+    padding: 20px;
+}
+
+#topo .menu a:hover {
+    color: var(--cor-destaque);
+}
+
+#topo .menu {
+    display: flex;
+    align-items: center;
+}
+
+#topo .menu ul {
+    display: flex;
+}
+
+#topo .redes_sociais {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-left: 200px;
+}
+
+#topo .redes_sociais li {
+    margin: 0;
+    margin-right: 30px;
+}
+
+#topo .redes_sociais .social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    border: 2px solid var(--cor-titulo);
+    border-radius: 50%;
+    color: var(--cor-titulo);
+    transition: all 0.3s ease;
+}
+
+#topo .redes_sociais .social-icon svg {
+    width: 28px;
+    height: 28px;
+}
+
+#topo .redes_sociais .social-icon:hover {
+    background-color: var(--cor-titulo);
+    color: var(--cor-fundo);
+    transform: scale(1.15);
+}
+
+.fundo {
+    padding-top: 10px;
+    position: relative;
+    isolation: isolate;
+    width: 100%;
+    min-height: 100vh;
+    background-color: black;
+}
+
+/* A imagem some em transparência na base, sem adicionar cor sobre ela. */
+.fundo::before {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    inset: 0;
+    background: url(../assets/Fundo_topo.png) center / cover no-repeat fixed;
+    -webkit-mask-image: linear-gradient(to top, transparent 0%, #000 45%);
+    mask-image: linear-gradient(to top, transparent 0%, #000 45%);
+    pointer-events: none;
+}
+
+.fundo > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* =================================
+   REGRAS PARA A HERO + PC CARROSSEL
+   ================================= */
+
+/* Container Principal da Hero (Lado a Lado) */
+#hero .hero_conteudo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 60px auto 0 auto; 
+    max-width: 1250px;
+    width: 90%;
+    gap: 40px;
+}
+
+/* Coluna da Esquerda - Textos */
+#hero .hero_texto {
+    flex: 1;
+}
+
+#hero .hero_texto h2 {
+    font-family: var(--fonte-titulo);
+    color: var(--cor-titulo);
+    font-size: 25px;
+}
+
+#hero .hero_texto h1 {
+    margin-top: 15px;
+    margin-bottom: 25px;
+    font-family: var(--fonte-titulo);
+    color: var(--cor-titulo);
+    font-size: 52px;
+    max-width: 600px;
+    line-height: 1.15;
+}
+
+#hero .hero_texto p {
+    font-family: var(--fonte-texto);
+    color: var(--cor-texto);
+    font-size: 18px;
+    max-width: 500px;
+    line-height: 1.5;
+}
+
+/* Coluna da Direita - PC e Carrossel Slick */
+#hero .hero_pc {
+    position: relative;
+    flex: 1;
+    max-width: 600px;
+    animation: pc-flutuar 5s ease-in-out infinite;
+    will-change: transform;
+}
+
+.pc_moldura {
+    width: 100%;
+    height: auto;
+    display: block;
+    position: relative;
+    z-index: 2;
+    pointer-events: none;
+    filter: drop-shadow(0 0 5px rgba(70, 255, 145, 0.8))
+            drop-shadow(0 0 16px rgba(35, 220, 105, 0.55))
+            drop-shadow(0 0 30px rgba(15, 170, 70, 0.3));
+}
+
+/* Brilho verde acompanhando o recorte da moldura e movimento suave. */
+@keyframes pc-flutuar {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-9px) rotate(-0.4deg);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #hero .hero_pc {
+        animation: none;
+    }
+}
+
+.pc_tela_carrossel {
+    position: absolute;
+    z-index: 1;
+    
+/* Posição da tela dentro de pc.png*/
+    top: 5%;
+    width: 100%;
+    height: 70%;
+    
+    overflow: hidden;
+    background-color: #000;
+}
+
+@media (max-width: 1200px) {
+    .pc_tela_carrossel {
+        /* Empurra a tela para dentro das bordas laterais do notebook */
+        left: 10%;       /* Ajuste esse % para centralizar na horizontal */
+        width: 80%;      /* Reduz a largura para não passar da borda do notebook */
+
+        /* Ajusta o topo e a altura da tela */
+        top: 5%;        /* Ajuste esse % para alinhar com o topo do display */
+        height: 75%;     /* Ajuste esse % para a base da tela não invadir o teclado */
+    }
+}
+
+/* Efeito verde sutil aplicada somente sobre os projetos exibidos na tela. */
+.pc_tela_carrossel::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    background: rgba(47, 255, 134, 0.288);
+    mix-blend-mode: screen;
+}
+
+/* Força os elementos do Slick a preencherem a altura da tela */
+.slick_slider, 
+.slick_slider .slick-list, 
+.slick_slider .slick-track, 
+.slick_slider .slick-slide > div {
+    height: 100%;
+}
+
+.slick_slider img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Fundo compartilhado das seções */
+.fundo-compartilhado {
+  background-image: url('../assets/fundo-compartilhado.png'); 
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  padding-top: 50px;
+  width: 100%;
+}
+#servicos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 60px auto 0 auto; 
+    padding: 50px 0;
+    background-color: var(--cor-fundo);
+}
+
+#servicos .conteudo-servicos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 150px;
+    margin: 0 auto;
+    max-width: 1250px;
+    width: 90%;
+}
+
+
+
+#servicos .card {
+    position: relative;
+    padding: 60px 40px 40px 40px;
+    background-color: rgba(65, 63, 63, 0.438);
+    border-radius: 65px;
+    max-width: 1250px;
+    width: 100%;
+    box-sizing: border-box;
+
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+}
+
+/* Criando a borda recortada via pseudo-elemento */
+#servicos .card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 65px;
+    border: 5px solid var(--cor-destaque);
+    pointer-events: none;
+
+    /* RECORTE DA BORDA: Abre um espaço de aproximadamente 160px no centro do topo */
+    /* Pontos: topo-esquerdo -> antes do corte -> desce no corte -> lado do corte -> topo-direito -> resto do box */
+    clip-path: polygon(
+        0% 0%, 
+        calc(50% - 80px) 0%, 
+        calc(50% - 80px) 15px, 
+        calc(50% + 80px) 15px, 
+        calc(50% + 80px) 0%, 
+        100% 0%, 
+        100% 100%, 
+        0% 100%
+    );
+}
+
+#servicos .icone-serv {
+    position: absolute;
+    top: -70px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: transparent !important; /* Totalmente transparente */
+    padding: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Tamanho travado do ícone */
+#servicos .icone-serv img {
+    width: 120px ;
+    height: 120px ;
+    object-fit: contain;
+    display: block;
+}
+
+#servicos .card h2 {
+    display: none;
+}
+
+#servicos .card p {
+    font-family: var(--fonte-texto);
+    color: var(--cor-texto);
+    font-size: 16px;
+    letter-spacing: 5px;
+    line-height: 25px;
+    padding: 10px;
+    text-align: center;
+    margin: 0;
+}
+
+
+/* Botão "Entrar em contato" */
+#servicos .container-btn {
+    margin-top: 60px;
+}
+
+#servicos .btn-contato {
+    display: inline-block;
+    padding: 14px 32px;
+    border: 2px solid var(--cor-destaque);
+    border-radius: 12px;
+    color: #ffffff;
+    font-family: var(--fonte-texto);
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+#servicos .btn-contato:hover {
+    background-color: var(--cor-destaque);
+    color: #000000;
+}
+
+/* ===================================================
+   FUNDO ANIMADO (THREE.JS)
+   =================================================== */
+
+/* Configuração do fundo escuro */
+body {
+  overflow-x: hidden;
+  background-color: #050505;
+}
+
+/* O canvas gerado pelo Three.js fica fixo no fundo de toda a página */
+canvas {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1; /* Fica atrás do conteúdo HTML */
+  pointer-events: none; /* Impede que o fundo bloqueie o clique do mouse */
+}
+
+/* Deixa a seção transparente para o 3D aparecer ao fundo */
+#servicos {
+  position: relative;
+  z-index: 1;
+  background-color: transparent !important;
+}
+
+.footer_localizacao .footer-content {
+    background-color: var(--cor-titulo);
+    color: #1A1A1A;
+    padding: 20px 15px;
+    border-radius: 8px;
+}
+
+.footer_localizacao .footer-content p {
+    color: #1A1A1A;
+    font-weight: 600;
+        font-family: var(--fonte-texto);
+    font-size: 0.95rem;
+    
+    line-height: 1.8;
+    margin: 8px 0;
+}
+
+#footer_serv {
+    position: relative;
+    z-index: 10;
+    background-color: transparent;
+    border-top: 2px solid var(--cor-borda);
+    padding: 60px 20px 30px;
+}
+
+.footer_cont {
+    background-color: transparent;
+}
+
+/* Corrigido de .footer-cont para .footer_cont e ajustado o font-size */
+.footer_cont h3 {
+    text-align: center;
+    font-family: var(--fonte-titulo);
+    font-size: 1.3rem;
+    color: var(--cor-titulo);
+    font-weight: 900;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.footer_cont p {
+    font-family: var(--fonte-texto);
+    font-size: 0.95rem;
+    justify-content: center;
+    text-align: center;
+    color: var(--cor-texto);
+    line-height: 1.8;
+    margin: 8px 0;
+}
